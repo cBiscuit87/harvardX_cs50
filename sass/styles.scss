@@ -1,0 +1,97 @@
+
+$color1: #2F4454; // blue-gray
+$color2: #2E151B; // dark-brown
+$color3: #DA7893; // pastel-pink
+$color4: #376E6F; // pastel-green
+$color5: #1C3334; // dark-blue-green
+
+$bg-main-light: #FFFFFF;
+$fg-text-light: $color1;
+
+$bg-main-dark: $color1;
+$fg-text-dark: #DCDCDC;
+$fg-comement: #57A64A;
+$fg-keyword: #569CD6;
+
+@mixin basic-text-mixin() {
+  font-family: "Times New Roman", Times, serif;
+}
+
+@media only print and (max-width: 9999px) {
+  * {
+    @include basic-text-mixin();
+    color: $fg-text-light;
+    background-color: $bg-main-light;
+  }
+}
+
+@media only screen {
+  * {
+    @include basic-text-mixin();
+    color: $fg-text-dark;
+    background-color: $bg-main-dark;
+  }
+}
+
+// Override Bootstrap Margins
+.h1, .h2, .h3, h1, h2, h3 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+p {
+  margin: 0 0 0 0px;
+}
+
+.navbar {
+  margin-bottom: 0px;
+}
+
+// Site main styles
+html {
+  padding: 10px;
+}
+
+body {
+  margin: auto;
+  max-width: 1000px;
+}
+
+#img_rv0  {
+  width: 100%;
+}
+
+.h1, .h2, .h3, h1, h2, h3 {
+  color: $fg-text-dark;
+}
+
+#navbar-parent {
+  padding-bottom: 20px;
+}
+
+a {
+  color: $fg-comement;
+
+  &:hover {
+    color: lighten( $fg-comement, 10% );
+  }
+}
+
+%cell-left-right {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.row {
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  .col-sm-4 {
+    @extend %cell-left-right;
+  }
+
+  .col-sm-8 {
+    @extend %cell-left-right;
+  }
+}
